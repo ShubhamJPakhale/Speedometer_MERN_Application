@@ -1,0 +1,127 @@
+.speedometer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 30px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.speedometer-svg {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+  animation: smoothSpin 0.5s ease-out;
+}
+
+@keyframes smoothSpin {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.speed-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.speed-value {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #333;
+  line-height: 1;
+  font-family: "Arial", monospace;
+  letter-spacing: 2px;
+}
+
+.speed-unit {
+  font-size: 1.2rem;
+  color: #666;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.speed-status {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.speed-status span {
+  padding: 8px 16px;
+  border-radius: 15px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.status-safe {
+  color: #fff;
+  background-color: #28a745;
+  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+}
+
+.status-warning {
+  color: #fff;
+  background-color: #ff9800;
+  box-shadow: 0 2px 8px rgba(255, 152, 0, 0.3);
+  animation: pulse-warning 1.5s infinite;
+}
+
+.status-danger {
+  color: #fff;
+  background-color: #dc3545;
+  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
+  animation: pulse-danger 1s infinite;
+}
+
+@keyframes pulse-warning {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes pulse-danger {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .speedometer-container {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .speedometer-svg {
+    width: 100%;
+    height: auto;
+  }
+
+  .speed-value {
+    font-size: 2.5rem;
+  }
+
+  .speed-unit {
+    font-size: 1rem;
+  }
+}
